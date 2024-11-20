@@ -36,14 +36,15 @@
             </main>
         </div>
     </body>
-  
-    
-    
     <script>
-      $(document).ready(function () {
-    setTimeout(function() {
-		$('#errorMessage').fadeOut('slow');
-	}, 4500); 
+    $(document).ready(function () {
+        setTimeout(function() {
+            $('#errorMessage').fadeOut('slow');
+        }, 4500); 
     });
+    // delete confirmation
+    function confirmDelete() {
+            return confirm("Are you sure you want to delete this record?"); 
+    }
   </script>
 </html>

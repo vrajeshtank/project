@@ -1,11 +1,11 @@
+<link href="{{ asset('css/bootstrap5.min.css') }}" rel="stylesheet" />
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Business Details') }}
             </h2>
-        </x-slot>
-<link href="{{ asset('css/bootstrap5.min.css') }}" rel="stylesheet" />
-        <div class="py-12">
+    </x-slot>
+    <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class=" p-6 text-gray-900">
@@ -23,8 +23,7 @@
                                 @endif
                             </div>
                         </div>
-                       
-                    <div class="form-group">
+                        <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" class="form-control  my-2" id="name" name="name" placeholder="name" value="{{ isset($business->name) ? $business->name :  old('name') }}">
                         </div>
@@ -51,9 +50,8 @@
             </div>
         </div>
     </div>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"  ></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script> -->
     <script>
+        // image preview
         function previewImage(event) {
         var reader = new FileReader();
         reader.onload = function() {
