@@ -1,5 +1,6 @@
-<link href="{{ asset('css/bootstrap5.min.css') }}" rel="stylesheet" />
+
 <x-app-layout>
+<link href="{{ asset('css/bootstrap5.min.css') }}" rel="stylesheet" />
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Location Detail') }}
