@@ -27,9 +27,4 @@ class Business extends Model
         return $file->store('logos', 'public');
     }
 
-    // Example of a relationship
-    // public function products()
-    // {
-    //     return $this->hasMany(Product::class);
-    // }
 }

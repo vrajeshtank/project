@@ -27,8 +27,8 @@
                             <label for="business" >Business Name</label>
                             <select class="form-control  my-2" name="business" id="business">
                             <option value="" Selected>Selected</option>
-                                    @foreach($business as $busines)
-                                    <option value="{{ $busines->id }}"  {{ isset($location->business_id) && $location->business_id == $busines->id ? 'selected' : '' }}>{{ $busines->name }}</option>
+                                    @foreach($locations->business  as $busines)
+                                    <option value="{{ $busines->id }}"  {{ isset($locations->business_id) && $locations->business_id == $busines->id ? 'selected' : '' }}>{{ $busines->name }}</option>
                                 @endforeach
                             </select> 
                         </div>

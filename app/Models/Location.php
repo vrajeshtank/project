@@ -14,7 +14,7 @@ class Location extends Model
     protected $dates = ['deleted_at']; 
 
     public function business()
-    {
-        return $this->belongsTo(Business::class);
+    {   
+        return $this->belongsTo(Business::class, 'business_id');
     }
 }
