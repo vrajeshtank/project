@@ -24,15 +24,15 @@
                         @enderror
 
                         <div class="form-group">
-                            <label for="business_name" >Business Name</label>
-                            <select class="form-control  my-2" name="business_name" id="business_name" >
-                            <option value="{{ isset($location->business_name) ? $location->business_name :  old('email')  }}" Selected>Selected</option>
+                            <label for="business" >Business Name</label>
+                            <select class="form-control  my-2" name="business" id="business" >
+                            <option value="" Selected>Selected</option>
                                     @foreach($business as $busines)
-                                    <option value="{{ $busines->name }}"  {{ isset($location->business_name) && $location->business_name == $busines->name ? 'selected' : '' }}>{{ $busines->name }}</option>
+                                    <option value="{{ $busines->id }}"  {{ isset($location->business_id) && $location->business_id == $busines->id ? 'selected' : '' }}>{{ $busines->name }}</option>
                                 @endforeach
                             </select> 
                         </div>
-                        @error('business_name')
+                        @error('business')
                             <div class="text-danger">{{ $message }}</div>
                         @enderror
 
