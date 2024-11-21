@@ -13,8 +13,7 @@ class BusinessController extends Controller
 {
 
      public function index() {
-
-        $business = Business::all()->where('is_deleted',0);
+        $business = Business::all();
         return view('bussiness', compact('business'));
     }
 
@@ -43,6 +42,7 @@ class BusinessController extends Controller
                 'name' => $request->input('name'),
                 'email' => $request->input('email'),
                 'address' => $request->input('address'),
+                'updated_at' => now(),
                 'created_user'=> $name,
             ];
         
@@ -54,7 +54,6 @@ class BusinessController extends Controller
                 // }
             }
             $save_flag = DB::table('businesses')->where('id', $id)->update($updateData);
-    
         }else{
             if ($request->hasFile('logo')) {
                 $logoPath = $request->file('logo')->store('logos', 'public');
@@ -82,9 +81,9 @@ class BusinessController extends Controller
         $id = $request->id;
         $business = Business::find($id); 
         if ($business) {
-          
-            $updateData = ['is_deleted' => 1];
-            $save_flag = DB::table('businesses')->where('id', $id)->update($updateData);
+            $save_flag = $business->delete(); 
+            // $updateData = ['is_deleted' => 1];
+            // $save_flag = DB::table('businesses')->where('id', $id)->update($updateData);
             if($save_flag){
             return redirect()->route("bussiness")->with('success','successfully Deleted');
         }else{

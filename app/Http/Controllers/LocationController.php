@@ -13,7 +13,8 @@ class LocationController extends Controller
 {
     //
     public function index(){
-        $Location = Location::all()->where('is_deleted',0);
+        $Location = Location::with('business')->get();
+
         return view("locatondetail", compact('Location'));
     }
     public function locationform(Request $request){
@@ -22,7 +23,7 @@ class LocationController extends Controller
 
         $location = Location::find($id);
 
-        $business = Business::all()->where('is_deleted',0);
+        $business = Business::all();    
         return view("locationform", compact('location','business'));
     }
     public function savelocationdata(Request $request){
@@ -32,24 +33,25 @@ class LocationController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'business_name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email|unique:locations,email,' . $id,
             'address' => 'required',
+            'business' => 'required|exists:businesses,id',
         ]);
 
         if($id){
             $Location = Location::find($id);
             $Location->name = $request->name;
-            $Location->business_name = $request->business_name;
+            $Location->business_id = $request->business;
             $Location->email = $request->email;
             $Location->address = $request->address;
             $Location->created_user =  $user;
+            $Location->updated_at = now();
             $save_flag = $Location->save();
            
         }else{
             $Location =new Location();
             $Location->name = $request->name;
-            $Location->business_name = $request->business_name;
+            $Location->business_id = $request->business;
             $Location->email = $request->email;
             $Location->address = $request->address;
             $Location->created_user =  $user;
@@ -67,9 +69,9 @@ class LocationController extends Controller
         $Location = Location::find($id);
 
         if($Location){
-            // $Location->delete();
-            $updateData = [ 'is_deleted' => 1 ];
-            $save_flag = DB::table('Locations')->where('id',$id)->update($updateData);
+          
+            $save_flag = $Location->delete();
+        
         }
         if($save_flag){
             return redirect()->route("locationdetail")->with('success','successfully Deleted');

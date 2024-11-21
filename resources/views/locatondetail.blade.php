@@ -44,7 +44,7 @@
                                 <tr>
                                     <td style="width: 50px;">{{ $index+1 }}</td>
                                     <td style="width: 100px;">{{ $locations->name }}</td>
-                                    <td style="width: 130px;">{{ $locations->business_name }}</td>
+                                    <td>{{ $locations->business ? $locations->business->name : 'No Business Assigned' }}</td>
                                     <td style="width: 150px;">{{ $locations->email }}</td>
                                     <td style="width: 160px;">{{ $locations->address }}</td>
                                     <td style="width: 100px;">{{ $locations->created_user }}</td>

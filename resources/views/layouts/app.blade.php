@@ -44,7 +44,7 @@
     });
     // delete confirmation
     function confirmDelete() {
-            return confirm("Are you sure you want to delete this record?"); 
+        return confirm("Are you sure you want to delete this record?"); 
     }
   </script>
 </html>

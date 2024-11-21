@@ -19,10 +19,9 @@ return new class extends Migration
             $table->string('email'); 
             $table->string('address');
             $table->string('created_user');
-            $table->string('is_deleted')->default('0');
             $table->timestamps();
+            $table->softDeletes(); 
         });
-        
     }
 
     /**
