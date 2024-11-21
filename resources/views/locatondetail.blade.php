@@ -50,7 +50,6 @@
                                     <td style="width: 100px;">{{ $locations->created_user }}</td>
                                     <td style="width: 150px;">
                                         <a href="{{ route('locationform' ,[ 'id' => $locations->id ] ) }}" class="btn btn-success">Edit</a>
-                                        
                                         <a href="{{ route('deletelocationdata' , [ 'id' => $locations->id ] ) }}" onclick="return confirmDelete();" class="btn btn-danger my-2" >Delete</a>
                                     </td>
                                 </tr>
