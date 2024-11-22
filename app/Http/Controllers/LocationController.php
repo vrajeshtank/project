@@ -20,10 +20,10 @@ class LocationController extends Controller
     public function locationform(Request $request){
 
         $id = $request->id;
-        $location = Location::with('business')->find($id);
-        // $business = Business::all();    
+        $location = Location::find($id);
+        $business = Business::all();    
 
-        return view("locationform", compact('location'));
+        return view("locationform", compact('location','business'));
     }
     public function savelocationdata(Request $request){
 

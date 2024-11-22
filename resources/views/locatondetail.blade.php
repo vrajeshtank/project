@@ -23,7 +23,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class=" p-6 text-gray-900">
                     <div class="d-flex justify-content-between align-items-center">
-                    <h2  class="my-3" >Location Details</h2>
+                    <h2  class="my-3 text-xl text-gray-800" >Location Details</h2>
                     <a href="{{ route('locationform') }}" class="btn btn-primary" > add + </a>
                     </div><hr>
                     <table class="table table-striped" action="">
@@ -47,13 +47,13 @@
                                     <td>{{ $locations->business ? $locations->business->name : 'No Business Assigned' }}</td>
                                     <td style="width: 150px;">{{ $locations->email }}</td>
                                     <td style="width: 160px;">{{ $locations->address }}</td>
-                                    <td style="width: 100px;">{{ $locations->created_user }}</td>
+                                    <td style="width: 150px;">{{ $locations->created_user }}</td>
                                     <td style="width: 150px;">
-                                        <a href="{{ route('locationform' ,[ 'id' => $locations->id ] ) }}" class="btn btn-success">Edit</a>
-                                        <a href="{{ route('deletelocationdata' , [ 'id' => $locations->id ] ) }}" onclick="return confirmDelete();" class="btn btn-danger my-2" >Delete</a>
+                                        <a href="{{ route('locationform' ,[ 'id' => $locations->id ] ) }}" class="btn btn-success lass my-1">Edit</a>
+                                        <a href="{{ route('deletelocationdata' , [ 'id' => $locations->id ] ) }}" onclick="return confirmDelete();" class="btn btn-danger lass my-1" >Delete</a>
                                     </td>
                                 </tr>
-                                @endforeach
+                                @endforeach 
                             @else
                                 <tr>
                                     <td colspan="7" class="text-center">No Data found</td>
