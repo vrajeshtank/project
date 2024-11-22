@@ -14,7 +14,8 @@ class BusinessController extends Controller
 
      public function index() {
         $business = Business::all();
-        return view('bussiness', compact('business'));
+        $trashedata = Business::onlyTrashed()->get();
+        return view('bussiness', compact('business','trashedata'));
     }
 
     public function editform(Request $request){
@@ -82,13 +83,37 @@ class BusinessController extends Controller
         $business = Business::find($id); 
         if ($business) {
             $save_flag = $business->delete(); 
-            // $updateData = ['is_deleted' => 1];
-            // $save_flag = DB::table('businesses')->where('id', $id)->update($updateData);
             if($save_flag){
-            return redirect()->route("bussiness")->with('success','successfully Deleted');
+            return redirect()->route("bussiness")->with('success','successfully Trash');
         }else{
             return redirect()->route("bussiness")->with('error','Something Wrong');
         }
+        }
+    }
+    public function forcedelete(Request $request){
+       
+        $id = $request->id;
+        $business = Business::withTrashed()->find($id); 
+        if ($business) {
+            $save_flag = $business->forceDelete();
+            if($save_flag){
+                return redirect()->route("bussiness")->with('success','successfully Deleted');
+            }else{
+                return redirect()->route("bussiness")->with('error','Something Wrong');
+            }
+        }
+    }
+    public function restore(Request $request){
+       
+        $id = $request->id;
+        $business = Business::withTrashed()->find($id);  
+        if ($business) {
+            $save_flag = $business->restore(); 
+            if($save_flag){
+                 return redirect()->route("bussiness")->with('success','successfully Restore');
+            }else{
+                return redirect()->route("bussiness")->with('error','Something Wrong');
+            }
         }
     }
 }
