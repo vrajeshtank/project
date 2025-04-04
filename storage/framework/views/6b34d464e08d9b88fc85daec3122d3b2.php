@@ -44,7 +44,7 @@ unset($__errorArgs, $__bag); ?>
                             <label for="business" >Business Name</label>
                             <select class="form-control  my-2" name="business" id="business">
                             <option value="" Selected>Selected</option>
-                                    <?php $__currentLoopData = $business; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $busines): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <?php $__currentLoopData = $business; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $busines): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <option value="<?php echo e($busines->id); ?>" <?php echo e(isset($location) && $location->business_id == $busines->id ? 'selected' : ''); ?>><?php echo e($busines->name); ?></option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </select> 
