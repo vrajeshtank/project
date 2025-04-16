@@ -46,7 +46,7 @@
                                     @foreach ($business as $index => $busines)
                                     <tr >
                                         <td style="width: 50px;">{{ $index + 1 }}</td> 
-                                        <td style="width: 100px;"><img src="{{ asset('storage/' .  $busines->img) }}" alt="logo Image" style="max-height: 100px;"></td> 
+                                        <td style="width: 100px;"><img src="{{ asset('storage/' . $busines->img) }}" alt="logo Image" style="max-height: 100px;"></td> 
                                         <td style="width: 150px;">{{ $busines->name }}</td> 
                                         <td style="width: 200px;">{{ $busines->email }}</td> 
                                         <td style="width: 250px;">{{ $busines->address }}</td>

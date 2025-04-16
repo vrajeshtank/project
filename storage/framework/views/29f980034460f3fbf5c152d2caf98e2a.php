@@ -28,7 +28,7 @@
                             <input type="file" class="form-control  my-2" id="logo" name="logo" accept=".jpg, .jpeg, .png"  onchange="previewImage(event)"> 
                             <div>
                                 <?php if(isset($business->img)): ?>
-                                    <img src="<?php echo e(asset('storage/'.$business->img)); ?>" alt="Current Logo" class="mt-2" id="logo-preview" style="max-height: 100px;">
+                                    <img src="<?php echo e(asset('storage/logos/' . $business->img)); ?>" alt="Current Logo" class="mt-2" id="logo-preview" style="max-height: 100px;">
                                 <?php else: ?>
                                     <img id="logo-preview" style="max-height: 100px;">
                                 <?php endif; ?>

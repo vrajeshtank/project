@@ -58,7 +58,7 @@
                                     <?php $__currentLoopData = $business; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $busines): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr >
                                         <td style="width: 50px;"><?php echo e($index + 1); ?></td> 
-                                        <td style="width: 100px;"><img src="<?php echo e(asset('storage/' .  $busines->img)); ?>" alt="logo Image" style="max-height: 100px;"></td> 
+                                        <td style="width: 100px;"><img src="<?php echo e(asset('storage/' . $busines->img)); ?>" alt="logo Image" style="max-height: 100px;"></td> 
                                         <td style="width: 150px;"><?php echo e($busines->name); ?></td> 
                                         <td style="width: 200px;"><?php echo e($busines->email); ?></td> 
                                         <td style="width: 250px;"><?php echo e($busines->address); ?></td>

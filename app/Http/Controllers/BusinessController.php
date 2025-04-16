@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Business;
+use Illuminate\Support\Facades\Storage;
 use DB;
 
 class BusinessController extends Controller
@@ -53,6 +54,9 @@ class BusinessController extends Controller
                 // if ($oldLogoPath && Storage::exists('public/' . $oldLogoPath)) {
                 //     Storage::delete('public/' . $oldLogoPath);
                 // }
+                if (!empty($oldLogoPath) && Storage::disk('public')->exists($oldLogoPath)) {
+                    Storage::disk('public')->delete($oldLogoPath);
+                }
             }
             $save_flag = DB::table('businesses')->where('id', $id)->update($updateData);
         }else{
