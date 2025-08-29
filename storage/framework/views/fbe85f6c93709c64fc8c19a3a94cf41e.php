@@ -147,7 +147,7 @@
                     </div>
                 </button>
 
-                <?php if(! $frame->isFromVendor() && $exception->frames()->slice($loop->index + 1)->filter(fn ($frame) => ! $frame->isFromVendor())->isEmpty()): ?>
+                <?php if(! $frame->isFromVendor() && $exception->frames()->slice($loop->index + 1)->reject(fn ($frame) => $frame->isFromVendor())->isEmpty()): ?>
                     <?php if($exception->frames()->slice($loop->index + 1)->count()): ?>
                         <div x-show="! includeVendorFrames">
                             <div class="text-gray-500">

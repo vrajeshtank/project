@@ -8,9 +8,13 @@
 <?php $attributes = $attributes->except(\App\View\Components\GuestLayout::ignoredParameterNames()); ?>
 <?php endif; ?>
 <?php $component->withAttributes([]); ?>
+<a href="<?php echo e(url('auth/google')); ?>" class="btn btn-danger">
+    Signup / Login with Google
+</a>
     <form method="POST" action="<?php echo e(route('register')); ?>">
-        <?php echo csrf_field(); ?>
 
+        <?php echo csrf_field(); ?>
+    
         <!-- Name -->
         <div>
             <?php if (isset($component)) { $__componentOriginale3da9d84bb64e4bc2eeebaafabfb2581 = $component; } ?>

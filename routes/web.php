@@ -5,6 +5,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\LocationController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MailController;
+
 
 
 Route::get('/', function () {
@@ -38,4 +40,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
    
   
 });
+
+Route::get('/send-mail', [MailController::class, 'sendMail']);
 require __DIR__.'/auth.php';

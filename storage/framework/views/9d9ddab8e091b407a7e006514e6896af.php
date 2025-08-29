@@ -44,13 +44,13 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th scope="col">No.</th>
-                                <th scope="col">Logo</th>
-                                <th scope="col" class="my-1">Name</th>
-                                <th scope="col" class="my-1">Email</th>
-                                <th scope="col" class="my-1">Adress</th>
-                                <th scope="col" class="my-1">Created User</th>
-                                <th scope="col" class="my-1">Action</th>
+                                <th >No.</th>
+                                <th >Logo</th>
+                                <th class="my-1">Name</th>
+                                <th class="my-1">Email</th>    
+                                <th class="my-1">Adress</th>
+                                <th class="my-1">Created User</th>
+                                <th class="my-1">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,7 +58,7 @@
                                     <?php $__currentLoopData = $business; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $busines): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <tr >
                                         <td style="width: 50px;"><?php echo e($index + 1); ?></td> 
-                                        <td style="width: 100px;"><img src="<?php echo e(asset('storage/' . $busines->img)); ?>" alt="logo Image" style="max-height: 100px;"></td> 
+                                        <td style="width: 100px;"><img src="<?php echo e(asset('storage/' . $busines->img)); ?>" alt="logo Image" style="height: 100px; width: 100px; object-fit: cover;"></td> 
                                         <td style="width: 150px;"><?php echo e($busines->name); ?></td> 
                                         <td style="width: 200px;"><?php echo e($busines->email); ?></td> 
                                         <td style="width: 250px;"><?php echo e($busines->address); ?></td>
@@ -70,7 +70,7 @@
                                             <a class="btn btn-danger py-2 my-1  " onclick="return confirmDelete();"  href="<?php echo e(route('deletebussiness' , [ 'id' => $busines->id ] )); ?>"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
   <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
-</svg></a>
+</svg></a>  
                                         </td> 
                                     </tr>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -132,7 +132,7 @@
                             <?php $__currentLoopData = $trashedata; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $trashe): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <tr>
                                 <td style="width: 50px;"><?php echo e($index + 1); ?></td> 
-                                <td style="width: 100px;"><img src="<?php echo e(asset('storage/' .  $trashe->img)); ?>" alt="logo Image" style="max-height: 100px;"></td> 
+                                <td style="width: 100px;"><img src="<?php echo e(asset('storage/' . $trashe->img)); ?>" alt="logo Image" style="max-height: 100px;"></td> 
                                 <td style="width: 150px;"><?php echo e($trashe->name); ?></td> 
                                 <td style="width: 200px;"><?php echo e($trashe->email); ?></td> 
                                 <td style="width: 250px;"><?php echo e($trashe->address); ?></td>

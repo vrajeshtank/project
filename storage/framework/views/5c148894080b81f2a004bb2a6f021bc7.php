@@ -172,6 +172,14 @@
                 </div>
             </div>
         </div>
+        <p style="font-size: 12px; color: #666;">
+  This site is protected by reCAPTCHA and the 
+  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> and 
+  <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms of Service</a> apply.
+</p>
+<script src="https://www.google.com/recaptcha/api.js?render=your_site_key"></script>
     </body>
+
+
 </html>
 <?php /**PATH C:\xampp\htdocs\project\resources\views/welcome.blade.php ENDPATH**/ ?>

@@ -1,7 +1,11 @@
 <x-guest-layout>
+<a href="{{ url('auth/google') }}" class="btn btn-danger">
+    Signup / Login with Google
+</a>
     <form method="POST" action="{{ route('register') }}">
-        @csrf
 
+        @csrf
+    
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />

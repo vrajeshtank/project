@@ -15,6 +15,7 @@ class BusinessController extends Controller
 
      public function index() {
         $business = Business::all();
+        //  $business = Business::where('created_user', Auth::user()->name)->get();
         $trashedata = Business::onlyTrashed()->get();
         return view('bussiness', compact('business','trashedata'));
     }
@@ -40,13 +41,13 @@ class BusinessController extends Controller
             'address'=>"required",
         ]);
         if($id){
-            $updateData = [
+            $updateData = array(
                 'name' => $request->input('name'),
                 'email' => $request->input('email'),
                 'address' => $request->input('address'),
                 'updated_at' => now(),
                 'created_user'=> $name,
-            ];
+            );
         
             if ($request->hasFile('logo')) {
                 $logoPath = $request->file('logo')->store('logos', 'public');

@@ -13,7 +13,7 @@
             <?php echo e(__('Dashboard')); ?>
 
         </h2>
-     <?php $__env->endSlot(); ?>
+     <?php $__env->endSlot(); ?>   
 
    <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -43,7 +43,6 @@
                                     <td colspan="3">No Data found</td>
                                 </tr>
                             <?php endif; ?>
-                               
                         </tbody>
                     </table>
                 </div>
